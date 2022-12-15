@@ -1,18 +1,27 @@
 import "./App.css";
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Navigate,
+  Route,
+  Routes,
+} from "react-router-dom";
 
 import Users from "./user/pages/Users";
 import NewPlace from "./places/pages/NewPlace";
+import MainNavigation from "./shared/components/Navigation/MainNavigation";
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="*" element={<Navigate to="/" replace />} />
-        <Route path="/" element={<Users />} />
-        <Route path="/places/create" element={<NewPlace />} exact />
-      </Routes>
-    </BrowserRouter>
+    <Router>
+      <MainNavigation />
+      <main>
+        <Routes>
+          <Route path="*" element={<Navigate to="/" replace />} />
+          <Route path="/" element={<Users />} />
+          <Route path="/places/create" element={<NewPlace />} exact />
+        </Routes>
+      </main>
+    </Router>
   );
 };
 
