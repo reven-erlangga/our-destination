@@ -7,7 +7,6 @@ const Map = (props) => {
   mapboxgl.accessToken = window.env.MAPBOX_ACCESS_TOKEN;
 
   const mapRef = useRef();
-
   const { center, zoom } = props;
 
   useEffect(() => {
