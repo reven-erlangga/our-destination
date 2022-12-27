@@ -17,6 +17,7 @@ const Map = (props) => {
       zoom: zoom, // starting zoom
     });
 
+    // Create a default Marker and add it to the map.
     new mapboxgl.Marker().setLngLat(center).addTo(map);
   }, [center, zoom]);
 
