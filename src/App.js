@@ -12,7 +12,6 @@ import MainNavigation from "./shared/components/Navigation/MainNavigation";
 import UserPlaces from "./places/pages/UserPlaces";
 import UpdatePlace from "./places/pages/UpdatePlace";
 import Auth from "./user/pages/Auth";
-import { Redirect } from "react-router-dom";
 import { AuthContext } from "./shared/context/auth-context";
 import React, { useCallback, useState } from "react";
 
@@ -32,19 +31,19 @@ const App = () => {
     routes = (
       <Routes>
         <Route path="/" element={<Users />} />
-        <Route path="/:userId/places" element={<UserPlaces />} exact />
-        <Route path="/places/create" element={<NewPlace />} exact />
-        <Route path="/places/:placeId" element={<UpdatePlace />} exact />
-        <Redirect to="/" />
+        <Route path="/:userId/places" element={<UserPlaces />} />
+        <Route path="/places/create" element={<NewPlace />} />
+        <Route path="/places/:placeId" element={<UpdatePlace />} />
+        <Route path="/" />
       </Routes>
     );
   } else {
     routes = (
       <Routes>
         <Route path="/" element={<Users />} />
-        <Route path="/:userId/places" element={<UserPlaces />} exact />
-        <Route path="/auth" element={<Auth />} exact />
-        <Redirect to="/auth" />
+        <Route path="/:userId/places" element={<UserPlaces />} />
+        <Route path="/auth" element={<Auth />} />
+        <Route path="/auth" />
       </Routes>
     );
   }

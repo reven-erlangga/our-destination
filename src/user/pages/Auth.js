@@ -3,14 +3,14 @@ import React, { useContext, useState } from "react";
 import "./Auth.css";
 
 import Card from "../../shared/components/UIElements/Card";
-import Input from "c:/users/erlangga/downloads/react-frontend-28-login-form-auth-page/react-frontend-27-login-form-auth-page/src/shared/components/formelements/input";
-import Button from "c:/users/erlangga/downloads/react-frontend-28-login-form-auth-page/react-frontend-27-login-form-auth-page/src/shared/components/formelements/button";
+import Input from "../../shared/components/FormElements/Input";
+import Button from "../../shared/components/FormElements/Button";
 import {
   VALIDATOR_EMAIL,
   VALIDATOR_MINLENGTH,
   VALIDATOR_REQUIRE,
-} from "c:/users/erlangga/downloads/react-frontend-28-login-form-auth-page/react-frontend-27-login-form-auth-page/src/shared/util/validators";
-import { useForm } from "c:/users/erlangga/downloads/react-frontend-28-login-form-auth-page/react-frontend-27-login-form-auth-page/src/shared/hooks/form-hook";
+} from "../../shared/utils/validators";
+import { useForm } from "../../shared/hooks/form-hook";
 import { AuthContext } from "../../shared/context/auth-context";
 
 const Auth = () => {
