@@ -7,5 +7,11 @@ router.get("/", (req, res, next) => {
     message: "Its work",
   });
 });
+router.get("/:id", (req, res, next) => {
+  const placeId = req.params.id;
+  res.json({
+    message: placeId,
+  });
+});
 
 module.exports = router;
