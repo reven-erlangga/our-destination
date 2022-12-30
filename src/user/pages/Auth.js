@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 
 import "./Auth.css";
 
@@ -11,8 +11,10 @@ import {
   VALIDATOR_REQUIRE,
 } from "c:/users/erlangga/downloads/react-frontend-28-login-form-auth-page/react-frontend-27-login-form-auth-page/src/shared/util/validators";
 import { useForm } from "c:/users/erlangga/downloads/react-frontend-28-login-form-auth-page/react-frontend-27-login-form-auth-page/src/shared/hooks/form-hook";
+import { AuthContext } from "../../shared/context/auth-context";
 
 const Auth = () => {
+  const auth = useContext(AuthContext);
   const [isLoginMode, setIsLoginMode] = useState(true);
   const [formState, inputHandler, setFormData] = useForm(
     {
@@ -31,6 +33,7 @@ const Auth = () => {
   const authSubmitHandler = (event) => {
     event.preventDefault();
     console.log(formState.inputs);
+    auth.login();
   };
 
   const switchModeHandler = (event) => {
