@@ -11,7 +11,7 @@ router.get("/", (req, res, next) => {
 });
 
 router.get("/:pid", placeControllers.getPlaceById);
-
 router.get("/user/:uid", placeControllers.getPlaceByUserId);
+router.post("/store", placeControllers.storePlace);
 
 module.exports = router;

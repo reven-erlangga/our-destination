@@ -6,6 +6,8 @@ const placesRoutes = require("./routes/places-route");
 const app = express();
 const port = 5000;
 
+app.use(bodyParser.json());
+
 app.use("/api/places", placesRoutes);
 
 app.use((err, req, res, next) => {
