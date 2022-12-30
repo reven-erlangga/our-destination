@@ -11,6 +11,8 @@ import NewPlace from "./places/pages/NewPlace";
 import MainNavigation from "./shared/components/Navigation/MainNavigation";
 import UserPlaces from "./places/pages/UserPlaces";
 import UpdatePlace from "./places/pages/UpdatePlace";
+import Auth from "./user/pages/Auth";
+import { Redirect } from "react-router-dom";
 
 const App = () => {
   return (
@@ -23,6 +25,8 @@ const App = () => {
           <Route path="/" element={<Users />} />
           <Route path="/places/create" element={<NewPlace />} exact />
           <Route path="/places/:placeId" element={<UpdatePlace />} exact />
+          <Route path="/auth" element={<Auth />} exact />
+          <Redirect tp="/" />
         </Routes>
       </main>
     </Router>
