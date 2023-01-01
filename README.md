@@ -1,6 +1,6 @@
 # Getting Started with this project
 
-This project using node js (backend) and react js (frontend)
+This project using node js (backend) and react js (frontend), this project is part of online corse from udemy.
 
 # Getting Started with Create React App
 
