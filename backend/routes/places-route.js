@@ -13,5 +13,7 @@ router.get("/", (req, res, next) => {
 router.get("/:pid", placeControllers.getPlaceById);
 router.get("/user/:uid", placeControllers.getPlaceByUserId);
 router.post("/store", placeControllers.storePlace);
+router.patch("/:pid", placeControllers.updatePlaceById);
+router.delete("/:pid", placeControllers.deletePlaceById);
 
 module.exports = router;
