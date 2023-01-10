@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const mongosee = require("mongoose");
 
 const placesRoutes = require("./routes/places-route");
 const usersRoutes = require("./routes/users-route");
@@ -31,6 +32,13 @@ app.use((err, req, res, next) => {
   });
 });
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
-});
+mongosee
+  .connect(
+    "mongodb+srv://erlangga:8ogAmt0AvSv5Z6QT@cluster0.vani0gh.mongodb.net/places?retryWrites=true&w=majority"
+  )
+  .then(() => {
+    app.listen(port, () => {
+      console.log(`Example app listening on port ${port}`);
+    });
+  })
+  .catch();
