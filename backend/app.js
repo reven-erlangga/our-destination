@@ -34,7 +34,7 @@ app.use((err, req, res, next) => {
 
 mongosee
   .connect(
-    "mongodb+srv://erlangga:8ogAmt0AvSv5Z6QT@cluster0.vani0gh.mongodb.net/places?retryWrites=true&w=majority"
+    "mongodb+srv://erlangga:8ogAmt0AvSv5Z6QT@cluster0.vani0gh.mongodb.net/destinations?retryWrites=true&w=majority"
   )
   .then(() => {
     app.listen(port, () => {
