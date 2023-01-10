@@ -22,7 +22,11 @@ router.post(
   ],
   placeControllers.storePlace
 );
-router.patch("/:pid", placeControllers.updatePlaceById);
+router.patch(
+  "/:pid",
+  [check("title").not().isEmpty(), check("description").isLength({ min: 5 })],
+  placeControllers.updatePlaceById
+);
 router.delete("/:pid", placeControllers.deletePlaceById);
 
 module.exports = router;

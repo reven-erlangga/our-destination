@@ -83,6 +83,12 @@ const storePlace = (req, res, next) => {
 };
 
 const updatePlaceById = (req, res, next) => {
+  const err = validationResult(req);
+
+  if (!err.isEmpty()) {
+    throw new HttpError("Invalid inputs passed, please check your data", 422);
+  }
+
   const { title, description } = req.body;
   const placeId = req.params.pid;
 
