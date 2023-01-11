@@ -76,13 +76,29 @@ const signUp = async (req, res, next) => {
     },
   });
 };
-const login = (req, res, next) => {
+
+const login = async (req, res, next) => {
   const { email, password } = req.body;
 
-  const identifiedUser = DUMMY_USERS.find((u) => u.email === email);
+  let existingUser;
+  try {
+    existingUser = await User.findOne({ email: email });
+  } catch (error) {
+    const err = new HttpError(
+      "Logging in failed, please try again later.",
+      500
+    );
 
-  if (!identifiedUser || identifiedUser.password !== password) {
-    throw new HttpError("Something error, we cannot identify user.", 401);
+    return next(err);
+  }
+
+  if (!existingUser || existingUser.password != password) {
+    const err = new HttpError(
+      "Invalid credentials, could not log you in.",
+      401
+    );
+
+    return next(err);
   }
 
   res.json({
