@@ -27,6 +27,6 @@ router.patch(
   [check("title").not().isEmpty(), check("description").isLength({ min: 5 })],
   placeControllers.updatePlaceById
 );
-router.delete("/:pid", placeControllers.deletePlaceById);
+router.delete("/:pid", placeControllers.destroyPlace);
 
 module.exports = router;
