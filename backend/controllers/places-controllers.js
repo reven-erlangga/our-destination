@@ -12,7 +12,6 @@ const getPlaceById = async (req, res, next) => {
   const placeId = req.params.pid;
 
   let place;
-
   try {
     place = await Place.findById(placeId).populate("creator");
   } catch (error) {
@@ -41,10 +40,9 @@ const getPlaceById = async (req, res, next) => {
 const getPlacesByUserId = async (req, res, next) => {
   const userId = req.params.uid;
 
-  let places;
-
+  let userWithPlaces;
   try {
-    places = await Place.find({ creator: userId });
+    userWithPlaces = await Place.findById(userId).populate("places");
   } catch (error) {
     const err = new HttpError(
       "Something went wrong, could not find a place.",
@@ -54,7 +52,7 @@ const getPlacesByUserId = async (req, res, next) => {
     return next(err);
   }
 
-  if (!places || places.length === 0) {
+  if (!userWithPlaces || userWithPlaces.places.length === 0) {
     const err = new HttpError(
       "Could not find a places for the provide user id.",
       500
@@ -65,7 +63,9 @@ const getPlacesByUserId = async (req, res, next) => {
 
   res.json({
     data: {
-      places: places.map((place) => place.toObject({ getters: true })),
+      places: userWithPlaces.places.map((place) =>
+        place.toObject({ getters: true })
+      ),
     },
   });
 };
