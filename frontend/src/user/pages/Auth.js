@@ -5,6 +5,8 @@ import "./Auth.css";
 import Card from "../../shared/components/UIElements/Card";
 import Input from "../../shared/components/FormElements/Input";
 import Button from "../../shared/components/FormElements/Button";
+import ErrorModal from "../../shared/components/FormElements/ErrorModal";
+import LoadingSpinner from "../../shared/components/FormElements/LoadingSpinner";
 import {
   VALIDATOR_EMAIL,
   VALIDATOR_MINLENGTH,
@@ -92,6 +94,7 @@ const Auth = () => {
 
   return (
     <Card className="authentication">
+      {isLoading && <LoadingSpinner asOverlay />}
       <h2>Login Required</h2>
       <hr />
       <form onSubmit={authSubmitHandler}>
