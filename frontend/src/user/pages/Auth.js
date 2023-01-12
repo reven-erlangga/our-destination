@@ -16,6 +16,9 @@ import { AuthContext } from "../../shared/context/auth-context";
 const Auth = () => {
   const auth = useContext(AuthContext);
   const [isLoginMode, setIsLoginMode] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
+  const [err, setErr] = useState();
+
   const [formState, inputHandler, setFormData] = useForm(
     {
       email: {
@@ -36,6 +39,7 @@ const Auth = () => {
     if (isLoginMode) {
     } else {
       try {
+        setIsLoading(true);
         const response = await fetch("http://localhost:5000/api/users/signup", {
           method: "POST",
           headers: {
@@ -49,9 +53,16 @@ const Auth = () => {
         });
 
         const responseData = await response.json();
-      } catch (error) {}
+
+        setIsLoading(false);
+
+        auth.login();
+      } catch (error) {
+        setErr(error.message || "Something went wrong please try again!");
+      }
     }
-    auth.login();
+
+    setIsLoading(false);
   };
 
   const switchModeHandler = (event) => {
