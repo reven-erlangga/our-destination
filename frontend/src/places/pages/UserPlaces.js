@@ -19,6 +19,8 @@ const UserPlaces = () => {
       );
       setLoadedPlaces(responseData.places);
     };
+
+    fetchPlaces();
   }, [sendRequest, userId]);
 
   return (
