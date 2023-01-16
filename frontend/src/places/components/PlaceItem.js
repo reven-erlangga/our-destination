@@ -61,7 +61,7 @@ const PlaceItem = (props) => {
       <Modal
         show={showConfirmModal}
         onCancel={cancelDeleteHandler}
-        header="Are you sure to delete this item ?"
+        header="This action cannot be undone. Are you sure to delete this item ?"
         footerClass="place-item__modal-actions"
         footer={
           <React.Fragment>
