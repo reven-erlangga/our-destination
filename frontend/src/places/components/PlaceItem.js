@@ -76,7 +76,7 @@ const PlaceItem = (props) => {
       >
         <p>
           Do you want to proceed and delete this place ? Please note that it
-          cant be undo.
+          cant be undo
         </p>
       </Modal>
 
