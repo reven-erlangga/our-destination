@@ -96,7 +96,7 @@ const PlaceItem = (props) => {
               View On Map
             </Button>
             {auth.userId === props.creatorId && (
-              <Button to={`/places/${props.id}`}>Edit</Button>
+              <Button to={`/places/${props.id}`}>Edit Place</Button>
             )}
             {auth.userId === props.creatorId && (
               <Button danger onClick={showDeleteWarningHandler}>
