@@ -1,0 +1,9 @@
+{
+  "env": {
+    "DB_USER": "erlangga",
+    "DB_PASSWORD": "8ogAmt0AvSv5Z6QT",
+    "DB_NAME": "destinations",
+    "MAPBOX_ACCESS_TOKEN": "pk.eyJ1IjoicmV2ZW5lcmxhbmdnYSIsImEiOiJjbDBleHd3czYwbm9pM2pwbzRjb2szOG1uIn0.Q9n0DBrI00Huxwmld_RwSg",
+    "JWT_KEY": "supersecret"
+  }
+}

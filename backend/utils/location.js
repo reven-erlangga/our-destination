@@ -1,6 +1,5 @@
 const axios = require("axios");
-const MAPBOX_ACCESS_TOKEN =
-  "pk.eyJ1IjoicmV2ZW5lcmxhbmdnYSIsImEiOiJjbDBleHd3czYwbm9pM2pwbzRjb2szOG1uIn0.Q9n0DBrI00Huxwmld_RwSg";
+const MAPBOX_ACCESS_TOKEN = process.env.MAPBOX_ACCESS_TOKEN;
 
 async function getCoordsForAddress(address) {
   const response = await axios.get(

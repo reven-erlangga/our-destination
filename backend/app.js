@@ -55,7 +55,7 @@ app.use((err, req, res, next) => {
 
 mongoose
   .connect(
-    "mongodb+srv://erlangga:8ogAmt0AvSv5Z6QT@cluster0.vani0gh.mongodb.net/destinations?retryWrites=true&w=majority"
+    `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.vani0gh.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`
   )
   .then(() => {
     app.listen(port, () => {
