@@ -92,8 +92,7 @@ const storePlace = async (req, res, next) => {
     description,
     address,
     location: coordinates,
-    image:
-      "https://img.freepik.com/free-vector/college-entrance-exam-concept-illustration_114360-10502.jpg",
+    image: req.file.path,
     creator,
   });
 
