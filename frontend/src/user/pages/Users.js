@@ -13,7 +13,7 @@ const Users = () => {
     const fetchUsers = async () => {
       try {
         const responseData = await sendRequest(
-          "http://localhost:5000/api/users"
+          `${process.env.BACKEND_URL}/users`
         );
 
         setLoadedUsers(responseData.users);
