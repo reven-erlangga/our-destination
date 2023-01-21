@@ -197,6 +197,12 @@ const destroyPlace = async (req, res, next) => {
     return next(err);
   }
 
+  if (place.creator.id !== req.userData.userId) {
+    const err = new HttpError("You are not allowed to delete this place", 401);
+
+    return next(err);
+  }
+
   const imagePath = place.image;
 
   try {
