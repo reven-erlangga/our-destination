@@ -10,7 +10,7 @@ const UserList = (props) => {
     return (
       <div className="center">
         <Card>
-          <h2>User not found</h2>
+          <h2>Sorry, User not found</h2>
         </Card>
       </div>
     );
